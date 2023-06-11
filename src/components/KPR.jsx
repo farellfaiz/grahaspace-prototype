@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import {
+  Text,
+  Button,
+  Box,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
+import React, { useState } from "react";
 
 const KPR = () => {
-  const [jumlahPinjaman, setJumlahPinjaman] = useState('500000000');
-  const [tingkatBunga, setTingkatBunga] = useState('6');
-  const [jangkaWaktu, setJangkaWaktu] = useState('12');
+  const [jumlahPinjaman, setJumlahPinjaman] = useState("500000000");
+  const [tingkatBunga, setTingkatBunga] = useState("6");
+  const [jangkaWaktu, setJangkaWaktu] = useState("12");
   const [angsuranBulanan, setAngsuranBulanan] = useState(0);
   const [nilaiPokokPinjaman, setNilaiPokokPinjaman] = useState(0);
   const [nilaiBungaPinjaman, setNilaiBungaPinjaman] = useState(0);
@@ -45,47 +53,38 @@ const KPR = () => {
   };
 
   return (
-    <div>
-      <h2>Kalkulator Hipotek</h2>
-      <form>
-        <label>
-          Jumlah Pinjaman:
-          <input
-            type="number"
-            value={jumlahPinjaman}
-            onChange={handleJumlahPinjamanChange}
-          />
-        </label>
-        <br />
-        <label>
-          Tingkat Bunga (%):
-          <input
-            type="number"
-            value={tingkatBunga}
-            onChange={handleTingkatBungaChange}
-          />
-        </label>
-        <br />
-        <label>
-          Jangka Waktu (tahun):
-          <input
-            type="number"
-            value={jangkaWaktu}
-            onChange={handleJangkaWaktuChange}
-          />
-        </label>
-        <br />
-        <button type="button" onClick={hitungAngsuranBulanan}>
+    <Box>
+        <Input
+          type="number"
+          value={jumlahPinjaman}
+          onChange={handleJumlahPinjamanChange}
+        />
+        <Input
+          type="number"
+          value={tingkatBunga}
+          onChange={handleTingkatBungaChange}
+        />
+        <Input
+          type="number"
+          value={jangkaWaktu}
+          onChange={handleJangkaWaktuChange}
+        />
+        <Button onClick={hitungAngsuranBulanan}>
           Hitung
-        </button>
-      </form>
-      <h3>Hasil:</h3>
-      <p>Nilai Pokok Pinjaman Awal: Rp{nilaiPokokPinjaman.toLocaleString()}</p>
-      <p>Nilai Bunga Pinjaman Awal: Rp{nilaiBungaPinjaman.toLocaleString()}</p>
-      <p>Pinjaman per Bulan: Rp{angsuranBulanan.toLocaleString()}</p>
-      <p>Total Pinjaman: Rp{totalPinjaman.toLocaleString()}</p>
-      <p>Total Bunga Pinjaman: Rp{totalBungaPinjaman.toLocaleString()}</p>
-    </div>
+        </Button>
+
+
+      <Text>Hasil:</Text>
+      <Text>
+        Nilai Pokok Pinjaman Awal: Rp{nilaiPokokPinjaman.toLocaleString()}
+      </Text>
+      <Text>
+        Nilai Bunga Pinjaman Awal: Rp{nilaiBungaPinjaman.toLocaleString()}
+      </Text>
+      <Text>Pinjaman per Bulan: Rp{angsuranBulanan.toLocaleString()}</Text>
+      <Text>Total Pinjaman: Rp{totalPinjaman.toLocaleString()}</Text>
+      <Text>Total Bunga Pinjaman: Rp{totalBungaPinjaman.toLocaleString()}</Text>
+    </Box>
   );
 };
 

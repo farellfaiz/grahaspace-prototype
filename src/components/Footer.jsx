@@ -3,15 +3,22 @@ import {
   Button,
   Divider,
   HStack,
+  IconButton,
   Input,
   Text,
   VStack,
-  IconButton,
-  
+  Badge
 } from "@chakra-ui/react";
 import React from "react";
-import { Logo } from "./Logo";
-import { FaEnvelope } from "react-icons/fa";
+import { IoHome } from "react-icons/io5";
+import {
+  FaEnvelope,
+  FaFacebook,
+  FaLinkedin,
+  FaTiktok,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -19,9 +26,22 @@ const Footer = () => {
       <Box w="100%" display={"flex"} justifyContent={"space-between"}>
         <Box w="20%">
           <VStack display="flex" alignItems="flex-start">
-            <Logo />
-            <Text color="gray.700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <HStack fontSize={"3xl"} color="teal">
+              <IoHome />
+              <Text
+                fontFamily={"Ubuntu"}
+                fontWeight={"bold"}
+                fontSize={"2xl"}
+                fontStyle={"italic"}
+              >
+                Grahaspace
+              </Text>
+              <Badge variant={"solid"} colorScheme="teal">
+                Prototype
+              </Badge>
+            </HStack>
+            <Text color="gray.600" fontSize='md'>
+              Pariatur dolor velit deserunt laboris laboris aliquip et velit nostrud magna nulla.
             </Text>
           </VStack>
         </Box>
@@ -60,14 +80,22 @@ const Footer = () => {
         </Box>
       </Box>
       <Divider my="30px" />
-      <Box display={"flex"} justifyContent={"space-between"}>
+      <Box
+        w="100%"
+        display={"flex"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
         <Text fontSize="sm" color="fg.subtle">
-          &copy; {new Date().getFullYear()} Grahaspace. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} Grahaspace. All rights reserved.
         </Text>
-        <Box>
-            <IconButton as="a" href="#" aria-label="GitHub" icon={<FaGithub fontSize="1.25rem" />} />
-        </Box>
+        <HStack>
+          <IconButton variant="link" icon={<FaTiktok />}></IconButton>
+          <IconButton variant="link" icon={<FaTwitter />}></IconButton>
+          <IconButton variant="link" icon={<FaFacebook />}></IconButton>
+          <IconButton variant="link" icon={<FaYoutube />}></IconButton>
+          <IconButton variant="link" icon={<FaLinkedin />}></IconButton>
+        </HStack>
       </Box>
     </VStack>
   );
